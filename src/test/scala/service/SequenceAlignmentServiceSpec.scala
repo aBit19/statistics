@@ -25,7 +25,14 @@ class SequenceAlignmentServiceSpec extends FlatSpec with BeforeAndAfterEach {
 
   it should "return penalty gap as minimum alignment for sequences with a gap difference in the start of the " +
     "sentence" in {
-    assert(sequenceAlignmentService.align(" i am here", "i am here") == 1)
+    assert(sequenceAlignmentService.align(" i am here", "i am here") == gap)
   }
 
+  it should "return 4 for min alignment between mean and name" in {
+    assert(sequenceAlignmentService.align("mean", "name") == 4)
+  }
+
+  it should "return 0 for empty strings" in {
+    assert(sequenceAlignmentService.align("", "") == 0)
+  }
 }
