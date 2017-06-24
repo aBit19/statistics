@@ -9,7 +9,9 @@ object TrainingSetStatsClient {
     val lang8Test = TrainingSetStats(>> ("entries.test.original"), >> ("entries.test.corrected"))
     val lang8Dev = TrainingSetStats(>> ("entries.dev.original"), >> ("entries.dev.corrected"))
     val lang8corpus = TrainingSetStats.reduce(List(lang8Train, lang8Test, lang8Dev))
-    print(lang8corpus.report)
+    print(lang8Train.report)
+    print(lang8Test.report)
+    print(lang8Dev.report)
   }
 
   def >>(file: String) : String = path + file

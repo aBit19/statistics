@@ -9,11 +9,11 @@ class TrainingSetStatsSpec extends FlatSpec with BeforeAndAfterEach {
   private val stats = TrainingSetStats( this >> "input.txt",  this >> "targetValid.txt")
 
 
-  "A TrainingStats" should "accept two files 1) input sentence and 2) target sentence respectively " in {
+  "A TrainingSetStats" should "accept two files 1) input sentence and 2) target sentence respectively " in {
     val trainingSetStatsSpec = TrainingSetStats( this >> "input.txt", this >> "input.txt")
   }
 
-  it should "throw IllegalArgumentException in case the file have different number of lines" in {
+  it should "throw IllegalArgumentException in case the files have different number of lines" in {
     assertThrows[IllegalArgumentException]{
       val trainingSetStats = TrainingSetStats(this >> "input.txt", this >> "target.txt")
     }
@@ -59,13 +59,13 @@ class TrainingSetStatsSpec extends FlatSpec with BeforeAndAfterEach {
 
   it should "create a report with sentence statistics" in {
     val actualReport = stats.report
-    val expectedReport =  "Statistic report\n" +
+    val expectedReport =  "\nStatistic report\n" +
                           "pairs: 4\n" +
                           "mean: 14.0\n" +
                           "std: 0.0\n" +
                           "corrected: 4\n" +
                           "wrong: 0\n" +
-                          "Statistic end"
+                          "Statistic end\n"
     assert(actualReport == expectedReport)
   }
 
