@@ -2,7 +2,7 @@ package service
 
 object TrainingSetStatsClient {
   import java.io.File
-  val path = new File(".").getAbsoluteFile+"/data/lang-8-en-1.0/"
+  private val path = new File(".").getAbsoluteFile+"/data/lang-8-en-1.0/"
 
   def main(args: Array[String]): Unit = {
     val lang8Train = TrainingSetStats(>> ("entries.train.original"), >>("entries.train.corrected"))
@@ -12,7 +12,8 @@ object TrainingSetStatsClient {
     print(lang8Train.report)
     print(lang8Test.report)
     print(lang8Dev.report)
+    print(lang8corpus.report)
   }
 
-  def >>(file: String) : String = path + file
+  private def >>(file: String) : String = path + file
 }
