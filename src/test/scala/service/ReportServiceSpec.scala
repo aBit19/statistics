@@ -8,7 +8,10 @@ class ReportServiceSpec extends FlatSpec {
   private val path = new File(".").getCanonicalFile + "/data/"
   private val stats = TrainingSetStats( path + "input.txt",  path + "targetValid.txt")
 
-  "ReportService" should "a TrainingSetStats object" in {
-    ReportService(stats)
+  "A ReportService" should "accept TrainingSetStats object" in {
+    val reportService: ReportService = t => {
+      "mean: %f\n pairs: %d".format(t.mean, t.pairs)
+    }
+    reportService(stats)
   }
 }

@@ -3,8 +3,6 @@ package clients
 import service.{SequenceAlignmentService, TrainingSetStats}
 
 object TrainingSetStatsClient {
-  import java.io.File
-  private val path = new File(".").getAbsoluteFile+"/data/lang-8-en-1.0/"
 
   def main(args: Array[String]): Unit = {
     testClient()
@@ -32,5 +30,5 @@ object TrainingSetStatsClient {
     langTest.editSet(ordering).foreach(println(_))
   }
 
-  private def >>(file: String) : String = path + file
+  private def >>(file: String) : String = Util.pathLang8 + file
 }

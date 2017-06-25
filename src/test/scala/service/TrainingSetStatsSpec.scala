@@ -96,7 +96,7 @@ class TrainingSetStatsSpec extends FlatSpec {
     assert(res.std == stats.std)
   }
 
-  it should "accept SequenceAlignmentService" in {
+  it should "accept SequenceAlignmentService.scala" in {
     val align = SequenceAlignmentService(1, 2)
     TrainingSetStats(this >> "input.txt", this >> "input.txt", align)
   }
