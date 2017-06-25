@@ -2,7 +2,7 @@ package service
 
 import org.scalatest.{BeforeAndAfterEach, FlatSpec}
 
-class SequenceAlignmentServiceSpec extends FlatSpec with BeforeAndAfterEach {
+class SequenceAlignmentServiceSpec extends FlatSpec {
 
   private val gap = 1
   private val mis = 2

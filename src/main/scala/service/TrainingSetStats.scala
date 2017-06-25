@@ -16,13 +16,6 @@ val seqServ : SequenceAlignmentService = SequenceAlignmentService(1, 2)) {
 
   val correct: Int = inputLines.zip(targetLines).count(s => s._1 == s._2)
   val wrong: Int = pairs - correct
-  val report: String = "\nStatistic report\n" +
-    "pairs: "+pairs+"\n" +
-    "mean: "+mean+"\n" +
-    "std: "+std+"\n" +
-    "corrected: "+correct+"\n"+
-    "wrong: "+wrong+"\n"+
-    "Statistic end\n"
 
   val editStats: Map[Int, Int] = {
     (inputLines zip targetLines).groupBy(s => seqServ.align(s._1, s._2)).mapValues(_.size)

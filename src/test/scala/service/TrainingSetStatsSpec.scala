@@ -4,7 +4,7 @@ import java.io.File
 
 import org.scalatest._
 
-class TrainingSetStatsSpec extends FlatSpec with BeforeAndAfterEach {
+class TrainingSetStatsSpec extends FlatSpec {
   private val path = new File(".").getCanonicalFile + "/data/"
   private val stats = TrainingSetStats( this >> "input.txt",  this >> "targetValid.txt")
 
@@ -55,18 +55,6 @@ class TrainingSetStatsSpec extends FlatSpec with BeforeAndAfterEach {
     assert(combine.correct == that.correct * 2)
     assert(combine.std == stats.std)
     assert(combine.mean == combine.mean)
-  }
-
-  it should "create a report with sentence statistics" in {
-    val actualReport = stats.report
-    val expectedReport =  "\nStatistic report\n" +
-                          "pairs: 4\n" +
-                          "mean: 14.0\n" +
-                          "std: 0.0\n" +
-                          "corrected: 4\n" +
-                          "wrong: 0\n" +
-                          "Statistic end\n"
-    assert(actualReport == expectedReport)
   }
 
   it can "process lang8 data" in {
