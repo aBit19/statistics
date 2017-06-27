@@ -19,7 +19,7 @@ object TrainingSetStatsClient {
     val lang8Train = TrainingSetStats(>> ("entries.train.original"), >>("entries.train.corrected"))
     val lang8Test = TrainingSetStats(>> ("entries.test.original"), >> ("entries.test.corrected"))
     val lang8Dev = TrainingSetStats(>> ("entries.dev.original"), >> ("entries.dev.corrected"))
-    val lang8corpus = TrainingSetStats.reduce(List(lang8Train, lang8Test, lang8Dev))
+    val lang8corpus = TrainingSetStats.combine(List(lang8Train, lang8Test, lang8Dev))
   }
 
   private def editClient(from: Int = 20, to: Int = 40): Unit = {

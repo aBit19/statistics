@@ -83,8 +83,8 @@ class TrainingSetStatsSpec extends FlatSpec {
     assert(op1.std == op2.std)
   }
 
-  "The companion object" should "reduce a list of statistic object to one" in {
-    TrainingSetStats.reduce(List(stats, TrainingSetStats(this >> "inputCombine.txt", this >> "targetCombine.txt")))
+  "The companion object" should "combine a list of statistic object to one" in {
+    TrainingSetStats.combine(List(stats, TrainingSetStats(this >> "inputCombine.txt", this >> "targetCombine.txt")))
   }
 
   it should "return a unit object" in {
