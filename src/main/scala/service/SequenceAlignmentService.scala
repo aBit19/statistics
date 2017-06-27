@@ -6,6 +6,7 @@ trait SequenceAlignmentService {
 
 object SequenceAlignmentService {
   def apply(gap: Int, mismatch: Int): SequenceAlignmentService = new SequenceAlignmentServiceImpl(gap, mismatch)
+  val editDistance: SequenceAlignmentService = new SequenceAlignmentServiceImpl(1, 1)
 
   private class SequenceAlignmentServiceImpl (val penaltyGap: Int, val penaltyMismatch: Int) extends
   SequenceAlignmentService{

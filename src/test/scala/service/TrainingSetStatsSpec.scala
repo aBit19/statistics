@@ -96,9 +96,14 @@ class TrainingSetStatsSpec extends FlatSpec {
     assert(res.std == stats.std)
   }
 
-  it should "accept SequenceAlignmentService.scala" in {
+  it should "accept align strategy" in {
     val align = SequenceAlignmentService(1, 2)
     TrainingSetStats(this >> "input.txt", this >> "input.txt", align)
+  }
+
+  it should "return sequence alignment object that calculates the edit distance" in {
+    val edit = SequenceAlignmentService.editDistance
+    assert(edit.align("kitten", "sitting") == 3)
   }
 
   "A TrainingSetStats" should "return the statistics of edit distance in a map with edit distance as key" in {

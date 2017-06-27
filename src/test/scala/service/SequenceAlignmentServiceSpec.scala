@@ -1,6 +1,6 @@
 package service
 
-import org.scalatest.{BeforeAndAfterEach, FlatSpec}
+import org.scalatest.FlatSpec
 
 class SequenceAlignmentServiceSpec extends FlatSpec {
 

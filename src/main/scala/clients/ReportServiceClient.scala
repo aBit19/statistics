@@ -9,6 +9,5 @@ object ReportServiceClient {
     val reportService: ReportService = st => "mean: %f\nstd: %f\nedit [20-30]: %s".format(st.mean, st.std, st.editSet
       .filter(s => s._1 >= 0 && s._1 < 20).toString())
     print(reportService(stats))
-    print(reportService(stats1))
   }
 }
