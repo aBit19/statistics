@@ -1,6 +1,5 @@
 target/
 .idea/
-project/
 data/entries*
 lang-8-en-1.0
 .DS*
