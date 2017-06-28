@@ -32,10 +32,6 @@ object TrainingSetStats {
             seqServ: SequenceAlignmentService = SequenceAlignmentService(1, 2)): TrainingSetStats =
     new TrainingSetStats(f(inputPath), f(targetPath), seqServ)
   def combine(list: List[TrainingSetStats]): TrainingSetStats = list.reduce(_ <= _)
-  def unit: TrainingSetStats = Unit
-
-  private object Unit extends TrainingSetStats(List.empty, List.empty) {
-    override val pairs:Int = 1
-  }
+  val unit = new TrainingSetStats(List.empty, List.empty)
 }
 
